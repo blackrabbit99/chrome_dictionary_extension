@@ -4,6 +4,15 @@
       url: {
         word: 'http://www.thefreedictionary.com/',
         idiom: 'http://idioms.thefreedictionary.com/'
+      },
+      menuItem: {
+        context: 'selection',
+        title: 'Find definition'
+      },
+      popup: {
+        type: 'popup',
+        width: 700,
+        height: 500
       }
     };
     var bindEvents = function(){
@@ -12,9 +21,13 @@
     };
 
     var attachContextMenu = function(){
-      var context = "selection";
-      var title = "Google for Selected Text";
-      var id = chrome.contextMenus.create({"title": title, "contexts":[context], "id": "context" + context});
+      var context = options.menuItem.context;
+      var title = options.menuItem.title;
+      var id = chrome.contextMenus.create({
+        "title": title,
+        "contexts":[context],
+        "id": "context" + context
+      });
     };
 
     var getUrl = function(text){
