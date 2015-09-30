@@ -2,7 +2,7 @@
   var PageObserver = function(){
     var options = {
       url: {
-        word: 'http://www.thefreedictionary.com/',
+        word: 'http://thefreedictionary.com/',
         idiom: 'http://idioms.thefreedictionary.com/'
       },
       menuItem: {
@@ -31,12 +31,12 @@
     };
 
     var getUrl = function(text){
-      var isWord = text.split(' ').length > 1;
-
+      var isWord = text.split(' ').length === 1;
       var url = isWord ? options.url.word : options.url.idiom;
 
       url+= isWord ? text : text.split(' ').join('+');
 
+      alert(url);
       return url;
     };
 
