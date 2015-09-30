@@ -1,5 +1,5 @@
-(function (chrome) {
-  var PageObserver = function(){
+(function(chrome) {
+  var PageObserver = function() {
     var options = {
       url: {
         word: 'http://thefreedictionary.com/',
@@ -15,32 +15,32 @@
         height: 500
       }
     };
-    var bindEvents = function(){
-        chrome.runtime.onInstalled.addListener(attachContextMenu);
-        chrome.contextMenus.onClicked.addListener(openPopup);
+
+    var bindEvents = function() {
+      chrome.runtime.onInstalled.addListener(attachContextMenu);
+      chrome.contextMenus.onClicked.addListener(openPopup);
     };
 
-    var attachContextMenu = function(){
+    var attachContextMenu = function() {
       var context = options.menuItem.context;
       var title = options.menuItem.title;
-      var id = chrome.contextMenus.create({
-        "title": title,
-        "contexts":[context],
-        "id": "context" + context
+      chrome.contextMenus.create({
+        'title': title,
+        'contexts': [context],
+        'id': 'context' + context
       });
     };
 
-    var getUrl = function(text){
+    var getUrl = function(text) {
       var isWord = text.split(' ').length === 1;
       var url = isWord ? options.url.word : options.url.idiom;
 
-      url+= isWord ? text : text.split(' ').join('+');
+      url += isWord ? text : text.split(' ').join('+');
 
-      alert(url);
       return url;
     };
 
-    var openPopup = function(info, tab){
+    var openPopup = function(info) {
       var sText = info.selectionText;
       chrome.windows.create({
         'url': getUrl(sText),
@@ -54,5 +54,5 @@
 
   };
 
-  pageObserver = new PageObserver();
+  new PageObserver();
 })(chrome);
