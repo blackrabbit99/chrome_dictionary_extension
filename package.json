@@ -1,11 +1,29 @@
 {
   "name": "chrome_unknown_expression_extension",
   "version": "0.0.1",
-  "description": "",
+  "description": "Chrome extension - definition dictionary for selected parts of page",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "blackrabbit99",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackrabbit99/chrome_dictionary_extension"
+  },
+  "keywords": [
+    "chrome",
+    "extension",
+    "definition",
+    "dictionary"
+  ],
+  "bugs": {
+    "url": "https://github.com/blackrabbit99/chrome_dictionary_extension/issues"
+  },
+  "homepage": "https://github.com/blackrabbit99/chrome_dictionary_extension",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-zip": "^3.0.2"
+  }
 }

@@ -14,6 +14,6 @@
     "scripts": ["background.js"]
   },
   "icons": {
-     "16": "camera-icon.png"
+     "16": "icon.png"
    }
 }
